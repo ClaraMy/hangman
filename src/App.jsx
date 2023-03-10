@@ -11,7 +11,7 @@ const App = () => {
       <main>
         <div className='hangman-side'>
           <Hangman />
-          <Message text="tout va bien ((:))"/>
+          <Message text="tout va bien ((:"/>
         </div>
         <div className='word-side'>
           <Word />
