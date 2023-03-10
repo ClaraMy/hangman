@@ -5,7 +5,7 @@ import { Keyboard } from './components/keyboard/Keyboard';
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
       <Header />
       <Hangman />
       <Keyboard />
