@@ -4,11 +4,17 @@ import { Keyboard } from './components/keyboard/Keyboard';
 
 const App = () => {
   return (
-    <div>
+    <>
       <Header />
-      <Hangman />
-      <Keyboard />
-    </div>
+      <main>
+        <div className='hangman-side'>
+          <Hangman />
+        </div>
+        <div className='word-side'>
+          <Keyboard />
+        </div>
+      </main>
+    </>
   );
 }
 
