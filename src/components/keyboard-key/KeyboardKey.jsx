@@ -4,7 +4,7 @@ import './KeyboardKey.css';
 export const Key = ({ letter }) => {
   return (
     <div className='key'>
-        <Key />
+        <Key className='key__svg'/>
         <p className='key__letter'>{letter}</p>
     </div>
   );

@@ -1,0 +1,19 @@
+.key {
+    position: relative;
+    cursor: pointer;
+}
+
+.key__svg {
+    filter: drop-shadow(0 5px black); 
+}
+
+.key__svg--pressed {
+    filter: none; 
+}
+
+.key__letter {
+    position: absolute;
+    top: 0%;
+    left: 35%;
+    font-size: 3rem;
+}
