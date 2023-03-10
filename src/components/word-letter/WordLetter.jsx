@@ -1,14 +1,14 @@
 import './WordLetter.css';
 
 export const WordLetter = ({ statut, letter }) => {
-    const character = "_";
+    let character = "_";
     if (statut === "visible") {
         character = letter;
     }
-    
+
   return (
-    <>
-        {character}
-    </>
+    <div>
+        {character} 
+    </div>
   );
 };

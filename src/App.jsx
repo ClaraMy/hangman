@@ -1,6 +1,7 @@
 import { Header } from './components/header/Header';
 import { Hangman } from './components/hangman/Hangman';
 import { Keyboard } from './components/keyboard/Keyboard';
+import { Word } from './components/word/Word';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
           <Hangman />
         </div>
         <div className='word-side'>
+          <Word />
           <Keyboard />
         </div>
       </main>

@@ -53,3 +53,17 @@ p,
 span {
   font-weight: 500;
 }
+
+.hangman-side {
+  width: 35vw;
+}
+
+.word-side {
+  width: 55vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem;
+}
