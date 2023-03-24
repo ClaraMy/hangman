@@ -10,9 +10,9 @@ const row3 = ["w","x","c","v","b","n"];
 export const Keyboard = ({ onClick, lettersFound }) => {
   return (
     <div className='keyboard'>
-        <Row onClick={onClick} letters={row1} />
-        <Row onClick={onClick} letters={row2} />
-        <Row onClick={onClick} letters={row3} />
+        <Row onClick={onClick} letters={row1} lettersFound={lettersFound} />
+        <Row onClick={onClick} letters={row2} lettersFound={lettersFound} />
+        <Row onClick={onClick} letters={row3} lettersFound={lettersFound} />
     </div>
   );
 };

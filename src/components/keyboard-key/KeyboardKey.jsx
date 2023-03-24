@@ -3,16 +3,18 @@ import React, { useState } from 'react';
 import './KeyboardKey.css';
 
 export const Key = ({ letter, onClick, lettersFound }) => {
-  const [pressed, setPressed] = useState(false);
+  const isLetterInWord = lettersFound.includes(letter);
+  const [isPressed, setIsPressed] = useState(false);
 
   function changeClass() {
-    setPressed(true);
+    setIsPressed(true);
     setTimeout(() => {
-      setPressed(false);
+      setIsPressed(false);
     }, 300);
   }
 
-  const className = pressed ? 'key--pressed' : 'key';
+  // const className = pressed ? 'key--pressed' : 'key';
+  const className =  `key ${isLetterInWord ? 'key--found' : ''} ${isPressed ? 'key--pressed' : ''}`;
 
   return (
     <div className={className} onClick={() => {

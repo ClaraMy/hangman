@@ -39,7 +39,7 @@ const App = () => {
         </div>
         <div className='word-side'>
           <Word word={wordToFind} lettersFound={lettersFound}/>
-          <Keyboard onClick={onPress}/>
+          <Keyboard onClick={onPress} lettersFound={lettersFound}/>
         </div>
       </main>
     </>

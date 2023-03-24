@@ -5,7 +5,7 @@ export const Row = ({ letters, onClick, lettersFound }) => {
   return (
     <div className='keyboard__row'>
       {letters.map((letter) => (
-        <Key key={letter} letter={letter} onClick={() => onClick(letter)} />
+        <Key key={letter} letter={letter} onClick={() => onClick(letter)} lettersFound={lettersFound} />
       ))}
     </div>
   );

@@ -15,3 +15,7 @@
     left: 35%;
     font-size: 3rem;
 }
+
+.key--found {
+    background-color: var(--color-correct);
+}
