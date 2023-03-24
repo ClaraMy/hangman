@@ -2,7 +2,7 @@ import { ReactComponent as KeySvg } from '../../assets/key.svg';
 import React, { useState } from 'react';
 import './KeyboardKey.css';
 
-export const Key = ({ letter, onClick }) => {
+export const Key = ({ letter, onClick, lettersFound }) => {
   const [pressed, setPressed] = useState(false);
 
   function changeClass() {
