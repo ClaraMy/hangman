@@ -2,9 +2,11 @@ import { WordLetter } from '../word-letter/WordLetter';
 import './Word.css';
 
 export const Word = ({  }) => {
-    const wordToFind = "abricot";
-    const chars = wordToFind.split('');
-    const statut = "hidden";
+    const wordToFind = "apétissant";
+    let chars = wordToFind.split('');
+    // chars.replace("é","e");
+    // console.log(chars);
+    const statut = "visible";
     const letter = chars.map((letter) =>
         <WordLetter statut={statut} letter={letter} />
     );
