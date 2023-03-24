@@ -28,7 +28,6 @@ const App = () => {
       .map((l) => (lettersFound.includes(l) ? l : '_'))
       .join('');
     setWord(newWord);
-
   }
   
   return (
