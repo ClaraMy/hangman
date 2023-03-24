@@ -16,17 +16,19 @@ const App = () => {
   const wordToFind = removeAccents(wordApi);
   const [word, setWord] = useState('');
   const [lettersFound, setLettersFound] = useState([]);
-  const [status, setStatus] = useState('normal');
+  const [status, setStatus] = useState('');
 
   function onPress(letter) {
     const inTheWord = wordToFind.includes(letter);
+    const newStatus = 'normal';
     if (inTheWord === true) {
       setLettersFound([...lettersFound, letter]);
-      setStatus([...status, 'correct']);
+      newStatus = 'correct';
     } else {
-      setStatus([...status, 'wrong']);
+      newStatus = 'wrong';
     }
-    
+    setStatus(newStatus);
+
     const newWord = word
       .split('')
       .map((l) => (lettersFound.includes(l) ? l : '_'))
@@ -44,7 +46,7 @@ const App = () => {
         </div>
         <div className='word-side'>
           <Word word={wordToFind} lettersFound={lettersFound}/>
-          <Keyboard onClick={onPress} lettersFound={lettersFound}/>
+          <Keyboard onClick={onPress} status={status}/>
         </div>
       </main>
     </>
