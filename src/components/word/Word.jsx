@@ -1,16 +1,8 @@
 import { WordLetter } from '../word-letter/WordLetter';
+import React, { useState } from 'react';
 import './Word.css';
 
-export const Word = ({  }) => {
-    const wordToFind = "apétissant";
-    const removeAccents = str =>
-      str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
-    let newWord = removeAccents(wordToFind);
-    console.log(newWord);
-
-    let chars = newWord.split('');
-
+export const Word = ({ word }) => {
     const statut = "visible";
     const letter = chars.map((letter) =>
         <WordLetter statut={statut} letter={letter} />
