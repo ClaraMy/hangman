@@ -1,12 +1,12 @@
 import { Key } from '../keyboard-key/KeyboardKey';
 import './KeyboardRow.css';
 
-export const Row = ({ letters, onClick, status }) => {
-  console.log(status);
+export const Row = ({ letters, onClick, lettersFound }) => {
+  console.log(lettersFound)
   return (
     <div className='keyboard__row'>
       {letters.map((letter) => (
-        <Key key={letter} letter={letter} onClick={() => onClick(letter)} status={status} />
+        <Key key={letter} letter={letter} onClick={() => onClick(letter)} lettersFound={lettersFound} />
       ))}
     </div>
   );

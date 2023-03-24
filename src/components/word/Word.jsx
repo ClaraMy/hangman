@@ -9,7 +9,7 @@ export const Word = ({ word, lettersFound }) => {
         {wordLetters.map((letter, index) => (
           <span
             key={index}
-            className={`letter ${lettersFound.includes(letter) ? 'trouvee' : ''}`}
+            // className={`letter ${lettersFound.includes(letter) ? 'trouvee' : ''}`}
           >
             {lettersFound.includes(letter) ? letter : '_'}
           </span>

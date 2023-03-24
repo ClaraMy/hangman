@@ -14,26 +14,19 @@ const App = () => {
     str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
   const wordToFind = removeAccents(wordApi);
-  const [word, setWord] = useState('');
+  // const [word, setWord] = useState('');
   const [lettersFound, setLettersFound] = useState([]);
-  const [status, setStatus] = useState('');
 
   function onPress(letter) {
     const inTheWord = wordToFind.includes(letter);
-    const newStatus = 'normal';
     if (inTheWord === true) {
       setLettersFound([...lettersFound, letter]);
-      newStatus = 'correct';
-    } else {
-      newStatus = 'wrong';
     }
-    setStatus(newStatus);
-
-    const newWord = word
-      .split('')
-      .map((l) => (lettersFound.includes(l) ? l : '_'))
-      .join('');
-    setWord(newWord);
+    // const newWord = word
+    //   .split('')
+    //   .map((l) => (lettersFound.includes(l) ? l : '_'))
+    //   .join('');
+    // setWord(newWord);
   }
   
   return (
@@ -46,7 +39,7 @@ const App = () => {
         </div>
         <div className='word-side'>
           <Word word={wordToFind} lettersFound={lettersFound}/>
-          <Keyboard onClick={onPress} status={status}/>
+          <Keyboard onClick={onPress} lettersFound={lettersFound}/>
         </div>
       </main>
     </>
