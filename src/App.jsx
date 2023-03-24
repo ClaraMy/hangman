@@ -7,22 +7,28 @@ import { useState } from 'react';
 
 const App = () => {
   // Mot à trouver
-  const wordToFind = "apétissant";
+  const wordToFind = "aplati";
 
   // Fonction pour retirer les accents
   const removeAccents = str =>
     str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  let newWord = removeAccents(wordToFind);
+  let wordWithoutAccent = removeAccents(wordToFind);
   
-  const [word, setWord] = useState(newWord);
-  const [lettersFound, setlettersFound] = useState([]);
+  const [word, setWord] = useState(wordWithoutAccent);
+  const [lettersFound, setLettersFound] = useState([]);
 
   function onPress(letter) {
     const inTheWord = word.includes(letter);
+    console.log(inTheWord);
     if (inTheWord) {
-      setlettersFound([...lettersFound, letter]);
+      setLettersFound([...lettersFound, letter]);
     }
+    const newWord = word
+      .split('')
+      .map((l) => (lettersFound.includes(l) ? l : '_'))
+      .join('');
+    setWord(newWord);
   }
   
   return (
