@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const App = () => {
   // Mot à trouver
-  const wordApi = "aplati";
+  const wordApi = "apétissant";
 
   // Fonction pour retirer les accents
   const removeAccents = str =>
