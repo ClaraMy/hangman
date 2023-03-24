@@ -18,10 +18,10 @@ const App = () => {
   const [word, setWord] = useState(newWord);
   const [lettersFound, setlettersFound] = useState([]);
 
-  function handleClick(lettre) {
-    const inTheWord = word.includes(lettre);
+  function onPress(letter) {
+    const inTheWord = word.includes(letter);
     if (inTheWord) {
-      setlettersFound([...lettersFound, lettre]);
+      setlettersFound([...lettersFound, letter]);
     }
   }
   
@@ -34,8 +34,8 @@ const App = () => {
           <Message text="tout va bien ((:"/>
         </div>
         <div className='word-side'>
-          <Word word={newWord}/>
-          <Keyboard />
+          <Word word={word} lettersFound={lettersFound}/>
+          <Keyboard onClick={onPress}/>
         </div>
       </main>
     </>
