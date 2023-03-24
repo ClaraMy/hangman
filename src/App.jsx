@@ -16,12 +16,17 @@ const App = () => {
   const wordToFind = removeAccents(wordApi);
   const [word, setWord] = useState('');
   const [lettersFound, setLettersFound] = useState([]);
+  const [status, setStatus] = useState('normal');
 
   function onPress(letter) {
     const inTheWord = wordToFind.includes(letter);
-    if (inTheWord == true) {
+    if (inTheWord === true) {
       setLettersFound([...lettersFound, letter]);
+      setStatus([...status, 'correct']);
+    } else {
+      setStatus([...status, 'wrong']);
     }
+    
     const newWord = word
       .split('')
       .map((l) => (lettersFound.includes(l) ? l : '_'))
