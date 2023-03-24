@@ -9,6 +9,7 @@
 
 .key__svg--pressed {
     filter: none; 
+    transform: translateY(5px);
 }
 
 .key__letter {
