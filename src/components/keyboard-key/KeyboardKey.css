@@ -4,7 +4,7 @@
     filter: drop-shadow(0 5px black); 
 }
 
-.key__svg--pressed {
+.key--pressed {
     filter: none; 
     transform: translateY(5px);
 }

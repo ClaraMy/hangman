@@ -12,11 +12,11 @@ export const Key = ({ letter }) => {
     }, 300);
   }
 
-  const className = pressed ? 'key__svg--pressed' : 'key__svg';
+  const className = pressed ? 'key--pressed' : 'key';
 
   return (
-    <div className='key'>
-        <KeySvg className={className} onClick={changeClass}/>
+    <div className={className} onClick={changeClass}>
+        <KeySvg />
         <p className='key__letter'>{letter}</p>
     </div>
   );
