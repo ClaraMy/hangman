@@ -16,16 +16,10 @@ body {
 }
 
 :root {
-  --color-primary: #1fb6ff;
-  --color-primary-text: #273444;
-  --color-primary-hover: #218fc7;
   --color-dark: #273444;
-  --color-dark-hover: #1b222a;
   --color-light: #ffffff;
-  --color-light-hover: #ffffff;
-  --color-danger: #dc2626;
-  --color-danger-hover: #991b1b;
-  --color-card-background: #151c25;
+  --color-error: #CDCDCD;
+  --color-correct: #94D9B4;
 }
 
 h1,
