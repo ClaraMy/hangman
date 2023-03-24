@@ -7,21 +7,20 @@ import { useState } from 'react';
 
 const App = () => {
   // Mot à trouver
-  const wordToFind = "aplati";
+  // const wordToFind = "aplati";
 
   // Fonction pour retirer les accents
-  const removeAccents = str =>
-    str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  // const removeAccents = str =>
+  //   str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  let wordWithoutAccent = removeAccents(wordToFind);
-  
-  const [word, setWord] = useState(wordWithoutAccent);
+  // let wordWithoutAccent = removeAccents(wordToFind);
+  const wordToFind = 'bibou'
+  const [word, setWord] = useState('');
   const [lettersFound, setLettersFound] = useState([]);
 
   function onPress(letter) {
-    const inTheWord = word.includes(letter);
-    console.log(inTheWord);
-    if (inTheWord) {
+    const inTheWord = wordToFind.includes(letter);
+    if (inTheWord == true) {
       setLettersFound([...lettersFound, letter]);
     }
     const newWord = word
@@ -29,6 +28,7 @@ const App = () => {
       .map((l) => (lettersFound.includes(l) ? l : '_'))
       .join('');
     setWord(newWord);
+
   }
   
   return (
@@ -40,7 +40,7 @@ const App = () => {
           <Message text="tout va bien ((:"/>
         </div>
         <div className='word-side'>
-          <Word word={word} lettersFound={lettersFound}/>
+          <Word word={wordToFind} lettersFound={lettersFound}/>
           <Keyboard onClick={onPress}/>
         </div>
       </main>
