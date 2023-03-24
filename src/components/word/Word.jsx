@@ -3,9 +3,14 @@ import './Word.css';
 
 export const Word = ({  }) => {
     const wordToFind = "apétissant";
-    let chars = wordToFind.split('');
-    // chars.replace("é","e");
-    // console.log(chars);
+    const removeAccents = str =>
+      str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+    let newWord = removeAccents(wordToFind);
+    console.log(newWord);
+
+    let chars = newWord.split('');
+
     const statut = "visible";
     const letter = chars.map((letter) =>
         <WordLetter statut={statut} letter={letter} />
