@@ -1,4 +1,8 @@
 .modal {
-    position: relative;
+    position: absolute;
+    backdrop-filter: blur(5px);
     filter: drop-shadow(0 10px black); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
