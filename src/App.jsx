@@ -8,12 +8,14 @@ import { Modal } from './components/modal/Modal';
 
 // const words = ["voiture", "ordinateur", "aérien"];
 const word = "pile";
+const MAX_MISSES = 9;
 
 const App = () => {
   // const [word, setWord] = useState("");
   const [lettersFound, setLettersFound] = useState([]);
   const [wordFound, setWordFound] = useState(false);
   const [isReplaying, setIsReplaying] = useState(false);
+  const [misses, setMisses] = useState(0);
 
   // remet tout à zéro si le joueur veut rejouer
   useEffect(() => {
@@ -41,6 +43,8 @@ const App = () => {
     const inTheWord = word.includes(letter);
     if (inTheWord === true) {
       setLettersFound([...lettersFound, letter]);
+    } else {
+      setMisses(misses + 1);
     }
   }
 
@@ -53,14 +57,17 @@ const App = () => {
   const handleReplay = () => {
     setWordFound(false);
     setLettersFound([]);
+    setMisses(0);
   }
+
+  const isGameOver = misses === MAX_MISSES;
   
   return (
     <>
       <Header />
       <main>
         <div className='hangman-side'>
-          <Hangman />
+          <Hangman misses={misses} />
           <Message text="tout va bien ((:"/>
         </div>
         <div className='word-side'>
