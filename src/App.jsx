@@ -35,19 +35,6 @@ const App = () => {
   const subtextReplay = "(rejouer)";
 
   // fonction pour le texte des boutons de la pop up
-  const addText = () => {
-    let newTextReplay = '';
-
-    if (state === "win") {
-      newTextReplay = "risquer encore sa vie";
-    }
-
-    if (state === "lose") {
-      newTextReplay = "mourir de nouveau";
-    }
-
-    setTextReplay([...textReplay, newTextReplay]);
-  }
 
   // fonction pour afficher la popup
   const handleWordFound = () => {
@@ -70,10 +57,7 @@ const App = () => {
         </div>
         <div className='word-side'>
           <Word word={wordToFind} lettersFound={lettersFound} onWordFound={handleWordFound}/>
-          <Keyboard lettersFound={lettersFound} onClick={() => {
-            onPress();
-            addText();
-          }} />
+          <Keyboard lettersFound={lettersFound} onClick={onPress} />
         </div>
         {wordFound && <Modal word={wordToFind} textReplay={textReplay} subtextReplay={subtextReplay} onClose={handleReplay}/>}
       </main>
