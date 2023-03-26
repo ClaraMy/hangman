@@ -66,7 +66,7 @@ const App = () => {
     if (misses === MAX_MISSES) {
       return "Vous êtes mort !";
     } else if (misses === MAX_MISSES - 1) {
-      return "un dernier ?";
+      return "un dernier souhait ?";
     } else if (misses === MAX_MISSES - 2) {
       return "oh oh la mort approche";
     } else if (misses === 0) {
