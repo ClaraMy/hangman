@@ -38,21 +38,28 @@ const App = () => {
 
   // fonction pour le texte des boutons de la pop up
   const addText = () => {
+    let newTextReplay = '';
+    let newTextHome = '';
+
     if (state === "win") {
-      textReplay = "risquer encore sa vie";
-      textHome = "partir de cet enfer";
+      newTextReplay = "risquer encore sa vie";
+      newTextHome = "partir de cet enfer";
     }
 
     if (state === "lose") {
-      textReplay = "mourir de nouveau";
-      textHome = "accepter la mort";
+      newTextReplay = "mourir de nouveau";
+      newTextHome = "accepter la mort";
     }
 
-    setTextReplay(...textReplay);
-    setTextHome(...textHome);
+    setTextReplay([...textReplay, newTextReplay]);
+    setTextHome([...textHome, newTextHome]);
   }
 
-  addText();
+  // fonction pour afficher la popup
+  const [wordFound, setWordFound] = useState(false);
+  const handleWordFound = () => {
+    setWordFound(true);
+  }
   
   return (
     <>
@@ -63,10 +70,13 @@ const App = () => {
           <Message text="tout va bien ((:"/>
         </div>
         <div className='word-side'>
-          <Word word={wordToFind} lettersFound={lettersFound}/>
-          <Keyboard onClick={onPress} lettersFound={lettersFound}/>
+          <Word word={wordToFind} lettersFound={lettersFound} onWordFound={handleWordFound}/>
+          <Keyboard lettersFound={lettersFound} onClick={() => {
+            onPress();
+            addText();
+          }} />
         </div>
-        <Modal state="win" textReplay={textReplay} textHome={textHome} subtextReplay={subtextReplay} subtextHome={subtextHome}/>
+        {wordFound && <Modal state="win" textReplay={textReplay} textHome={textHome} subtextReplay={subtextReplay} subtextHome={subtextHome}/>}
       </main>
     </>
   );

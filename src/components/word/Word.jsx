@@ -1,6 +1,6 @@
 import './Word.css';
 
-export const Word = ({ word, lettersFound }) => {
+export const Word = ({ word, lettersFound, onWordFound }) => {
     // Fonction pour transformer la chaîne de caractère en un tableau avec chacune des lettres
     let wordLetters = word.split('');
 
