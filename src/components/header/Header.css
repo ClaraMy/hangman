@@ -1,8 +1,4 @@
-header {
-    display: flex;
-    gap: 1rem;
-}
-
-p {
+h1 {
+    text-align: center;
     font-size: 2rem;
 }
