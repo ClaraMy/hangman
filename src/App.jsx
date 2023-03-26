@@ -7,6 +7,8 @@ import { useState } from 'react';
 import { Modal } from './components/modal/Modal';
 
 const App = () => {
+  const [lettersFound, setLettersFound] = useState([]);
+  const [wordFound, setWordFound] = useState(false);
   // Mot à trouver
   const wordApi = "apétissant";
 
@@ -16,7 +18,6 @@ const App = () => {
 
   const wordToFind = removeAccents(wordApi);
   // const [word, setWord] = useState('');
-  const [lettersFound, setLettersFound] = useState([]);
 
   const onPress = (letter) => {
     const inTheWord = wordToFind.includes(letter);
@@ -50,7 +51,6 @@ const App = () => {
   }
 
   // fonction pour afficher la popup
-  const [wordFound, setWordFound] = useState(false);
   const handleWordFound = () => {
     setWordFound(true);
   }
