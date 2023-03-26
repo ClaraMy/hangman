@@ -32,27 +32,21 @@ const App = () => {
 
   let state = "win";
   const [textReplay, setTextReplay] = useState('');
-  const [textHome, setTextHome] = useState('');
   const subtextReplay = "(rejouer)";
-  const subtextHome = "(retourner au menu)";
 
   // fonction pour le texte des boutons de la pop up
   const addText = () => {
     let newTextReplay = '';
-    let newTextHome = '';
 
     if (state === "win") {
       newTextReplay = "risquer encore sa vie";
-      newTextHome = "partir de cet enfer";
     }
 
     if (state === "lose") {
       newTextReplay = "mourir de nouveau";
-      newTextHome = "accepter la mort";
     }
 
     setTextReplay([...textReplay, newTextReplay]);
-    setTextHome([...textHome, newTextHome]);
   }
 
   // fonction pour afficher la popup
@@ -82,7 +76,7 @@ const App = () => {
             addText();
           }} />
         </div>
-        {wordFound && <Modal word={wordToFind} state="win" textReplay={textReplay} textHome={textHome} subtextReplay={subtextReplay} subtextHome={subtextHome} onClose={handleReplay}/>}
+        {wordFound && <Modal word={wordToFind} state="win" textReplay={textReplay} subtextReplay={subtextReplay} onClose={handleReplay}/>}
       </main>
     </>
   );
