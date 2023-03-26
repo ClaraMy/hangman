@@ -6,8 +6,7 @@ export const Modal = ({ word, state, textReplay, textHome, subtextReplay, subtex
   return (
     <div className='modal'>
         <ModalSvg />
-        <Button text={textReplay} subtext={subtextReplay} />
-        <Button onClick={onClose} text={textHome} subtext={subtextHome} />
+        <Button onClick={onClose} text={textReplay} subtext={subtextReplay} />
     </div>
   );
 };
