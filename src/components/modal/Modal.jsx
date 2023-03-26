@@ -8,7 +8,7 @@ export const Modal = ({ word, message, textReplay, subtextReplay, onClose }) => 
     <div className='modal'>
         <ModalSvg />
         <div className="modal__container">
-          <Message text={message} />
+          <Message text={message} word={word}/>
           <Button onClick={onClose} text={textReplay} subtext={subtextReplay} />
         </div>
     </div>
