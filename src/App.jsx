@@ -29,6 +29,30 @@ const App = () => {
     //   .join('');
     // setWord(newWord);
   }
+
+  let state = "win";
+  const [textReplay, setTextReplay] = useState('');
+  const [textHome, setTextHome] = useState('');
+  const subtextReplay = "(rejouer)";
+  const subtextHome = "(retourner au menu)";
+
+  // fonction pour le texte des boutons de la pop up
+  const addText = () => {
+    if (state === "win") {
+      textReplay = "risquer encore sa vie";
+      textHome = "partir de cet enfer";
+    }
+
+    if (state === "lose") {
+      textReplay = "mourir de nouveau";
+      textHome = "accepter la mort";
+    }
+
+    setTextReplay(...textReplay);
+    setTextHome(...textHome);
+  }
+
+  addText();
   
   return (
     <>
@@ -42,7 +66,7 @@ const App = () => {
           <Word word={wordToFind} lettersFound={lettersFound}/>
           <Keyboard onClick={onPress} lettersFound={lettersFound}/>
         </div>
-        <Modal state="win"/>
+        <Modal state="win" textReplay={textReplay} textHome={textHome} subtextReplay={subtextReplay} subtextHome={subtextHome}/>
       </main>
     </>
   );
