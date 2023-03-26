@@ -2,6 +2,6 @@ import './Message.css';
 
 export const Message = ({ text }) => {
   return (
-    <p className='message'>{text}</p>
+    <p className='modal__text'>{text}</p>
   );
 };
