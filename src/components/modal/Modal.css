@@ -1,6 +1,8 @@
 .modal {
     position: absolute;
+    top: 0;
     backdrop-filter: blur(5px);
+    padding: 20px;
     filter: drop-shadow(0 10px black); 
     display: flex;
     flex-direction: column;
