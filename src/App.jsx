@@ -8,7 +8,7 @@ import { Modal } from './components/modal/Modal';
 
 // const words = ["voiture", "ordinateur", "aérien"];
 const word = "pile";
-const MAX_MISSES = 9;
+const MAX_MISSES = 11;
 
 const App = () => {
   // const [word, setWord] = useState("");
@@ -61,6 +61,20 @@ const App = () => {
   }
 
   const isGameOver = misses === MAX_MISSES;
+
+  const getMessage = (misses) => {
+    if (misses === MAX_MISSES) {
+      return "Vous êtes mort !";
+    } else if (misses === MAX_MISSES - 1) {
+      return "un dernier ?";
+    } else if (misses === MAX_MISSES - 2) {
+      return "oh oh la mort approche";
+    } else if (misses > 0) {
+      return `Il vous reste ${MAX_MISSES - misses} essais`;
+    } else {
+      return "";
+    }
+  };
   
   return (
     <>
@@ -68,7 +82,7 @@ const App = () => {
       <main>
         <div className='hangman-side'>
           <Hangman misses={misses} />
-          <Message text="tout va bien ((:"/>
+          <Message text={getMessage(misses)}/>
         </div>
         <div className='word-side'>
           <Word word={word} lettersFound={lettersFound} onWordFound={handleWordFound}/>

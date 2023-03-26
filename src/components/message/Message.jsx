@@ -1,7 +1,7 @@
 import './Message.css';
 
-export const Message = ({  }) => {
+export const Message = ({ text }) => {
   return (
-    <p className='message'></p>
+    <p className='message'>{text}</p>
   );
 };
