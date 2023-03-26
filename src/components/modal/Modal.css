@@ -1,0 +1,4 @@
+.modal {
+    position: relative;
+    filter: drop-shadow(0 10px black); 
+}
