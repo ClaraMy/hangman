@@ -31,7 +31,6 @@ const App = () => {
     // setWord(newWord);
   }
 
-  let state = "win";
   const [textReplay, setTextReplay] = useState('');
   const subtextReplay = "(rejouer)";
 
@@ -76,7 +75,7 @@ const App = () => {
             addText();
           }} />
         </div>
-        {wordFound && <Modal word={wordToFind} state="win" textReplay={textReplay} subtextReplay={subtextReplay} onClose={handleReplay}/>}
+        {wordFound && <Modal word={wordToFind} textReplay={textReplay} subtextReplay={subtextReplay} onClose={handleReplay}/>}
       </main>
     </>
   );

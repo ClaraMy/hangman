@@ -2,7 +2,7 @@ import './Modal.css';
 import { ReactComponent as ModalSvg } from '../../assets/modal.svg';
 import { Button } from '../button/Button';
 
-export const Modal = ({ word, state, textReplay, subtextReplay, onClose }) => {
+export const Modal = ({ word, textReplay, subtextReplay, onClose }) => {
   return (
     <div className='modal'>
         <ModalSvg />
