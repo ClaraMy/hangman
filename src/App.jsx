@@ -6,7 +6,10 @@ import { Message } from './components/message/Message';
 import { useState } from 'react';
 import { Modal } from './components/modal/Modal';
 
+const words = ["voiture", "ordinateur"];
+
 const App = () => {
+  const [wordToFind, setWordToFind] = useState("");
   const [lettersFound, setLettersFound] = useState([]);
   const [wordFound, setWordFound] = useState(false);
   // Mot à trouver

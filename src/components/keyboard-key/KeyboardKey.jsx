@@ -20,7 +20,13 @@ export const Key = ({ letter, onClick, lettersFound }) => {
     if (isClicked) {
       setColor(lettersFound.includes(letter) ? "#94D9B4" : "#CDCDCD");
     }
-  }, [isClicked, lettersFound, letter]);
+  }, [isClicked]);
+
+  useEffect(() => {
+    if (lettersFound.length === 0) {
+      setColor("#FFFFFF");
+    }
+  }, [lettersFound]);
 
   const changeColor = () => {
     onClick(letter);
