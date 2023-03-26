@@ -18,7 +18,7 @@ const App = () => {
   // const [word, setWord] = useState('');
   const [lettersFound, setLettersFound] = useState([]);
 
-  function onPress(letter) {
+  const onPress = (letter) => {
     const inTheWord = wordToFind.includes(letter);
     if (inTheWord === true) {
       setLettersFound([...lettersFound, letter]);
