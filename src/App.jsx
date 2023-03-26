@@ -46,6 +46,8 @@ const App = () => {
     setWordFound(false);
     setLettersFound([]);
   }
+
+  const message = "coucou";
   
   return (
     <>
@@ -59,7 +61,7 @@ const App = () => {
           <Word word={wordToFind} lettersFound={lettersFound} onWordFound={handleWordFound}/>
           <Keyboard lettersFound={lettersFound} onClick={onPress} />
         </div>
-        {wordFound && <Modal word={wordToFind} textReplay={textReplay} subtextReplay={subtextReplay} onClose={handleReplay}/>}
+        {wordFound && <Modal word={wordToFind} message ={message} textReplay={textReplay} subtextReplay={subtextReplay} onClose={handleReplay}/>}
       </main>
     </>
   );
