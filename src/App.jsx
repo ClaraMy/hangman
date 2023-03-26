@@ -4,6 +4,7 @@ import { Keyboard } from './components/keyboard/Keyboard';
 import { Word } from './components/word/Word';
 import { Message } from './components/message/Message';
 import { useState } from 'react';
+import { Modal } from './components/modal/Modal';
 
 const App = () => {
   // Mot à trouver
@@ -41,6 +42,7 @@ const App = () => {
           <Word word={wordToFind} lettersFound={lettersFound}/>
           <Keyboard onClick={onPress} lettersFound={lettersFound}/>
         </div>
+        <Modal state="win"/>
       </main>
     </>
   );
