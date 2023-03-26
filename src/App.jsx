@@ -69,6 +69,18 @@ const App = () => {
       return "un dernier ?";
     } else if (misses === MAX_MISSES - 2) {
       return "oh oh la mort approche";
+    } else if (misses === 0) {
+      return "tout va bien :))";
+    } else if (misses === 1) {
+      return "l'installation commence";
+    } else if (misses === 2) {
+      return "une barre de plus";
+    } else if (misses === 3) {
+      return "ce n'est pas grave";
+    } else if (misses === 4) {
+      return "commencez a paniquer";
+    } else if (misses === 5) {
+      return "hmm vous allez bien ?";
     } else if (misses > 0) {
       return `Il vous reste ${MAX_MISSES - misses} essais`;
     } else {
