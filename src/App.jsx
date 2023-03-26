@@ -54,7 +54,7 @@ const App = () => {
           <Word word={wordToFind} lettersFound={lettersFound} onWordFound={handleWordFound}/>
           <Keyboard lettersFound={lettersFound} onClick={onPress} />
         </div>
-        <Modal word={wordToFind} win={wordFound} onClose={handleReplay}/>
+        {wordFound && <Modal word={wordToFind} win={wordFound} onClose={handleReplay}/>}
       </main>
     </>
   );
