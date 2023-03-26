@@ -60,6 +60,12 @@ const App = () => {
   const handleWordFound = () => {
     setWordFound(true);
   }
+
+  // fonction pour rejouer
+  const handleReplay = () => {
+    setWordFound(false);
+    setLettersFound([]);
+  }
   
   return (
     <>
@@ -76,7 +82,7 @@ const App = () => {
             addText();
           }} />
         </div>
-        {wordFound && <Modal word={wordToFind} state="win" textReplay={textReplay} textHome={textHome} subtextReplay={subtextReplay} subtextHome={subtextHome}/>}
+        {wordFound && <Modal word={wordToFind} state="win" textReplay={textReplay} textHome={textHome} subtextReplay={subtextReplay} subtextHome={subtextHome} onClose={handleReplay}/>}
       </main>
     </>
   );
