@@ -1,10 +1,11 @@
 import { KeySvg } from '../key-svg/KeySvg';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './KeyboardKey.css';
 
 export const Key = ({ letter, onClick, lettersFound }) => {
   const [isPressed, setIsPressed] = useState(false);
-  const [color,setColor] = useState('#ffffff');
+  const [isClicked, setIsClicked] = useState(false);
+  const [color, setColor] = useState("#FFFFFF");
 
   const changeClass = () => {
     setIsPressed(true);
@@ -15,15 +16,15 @@ export const Key = ({ letter, onClick, lettersFound }) => {
 
   const className = `key${isPressed ? ' key--pressed' : ''}`;
 
-  const changeColor = () => {
-    const isIn = lettersFound.includes(letter);
-    if (isIn === true) {
-      setColor('#94D9B4');
+  useEffect(() => {
+    if (isClicked) {
+      setColor(lettersFound.includes(letter) ? "#94D9B4" : "#CDCDCD");
     }
+  }, [isClicked, lettersFound, letter]);
 
-    if (isIn === false) {
-      setColor('#CDCDCD');
-    }
+  const changeColor = () => {
+    onClick(letter);
+    setIsClicked(true);
   }
 
   return (
