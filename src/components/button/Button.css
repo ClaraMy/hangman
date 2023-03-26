@@ -1,5 +1,7 @@
 .button__text {
     font-weight: 700;
+    font-size: 3.5rem;
+    text-align: center;
 }
 
 .button__subtext {
