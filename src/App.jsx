@@ -28,9 +28,7 @@ const App = () => {
     fetch(API_URL, options)
       .then(response => response.json())
       .then((data) => {
-          console.log(data.word);
           const newWord = removeAccents(data.word.toLowerCase());
-          console.log(newWord);
           setWord(newWord)
         })
       .catch(err => console.error(err));
