@@ -34,7 +34,6 @@ const App = () => {
       .then((data) => {
           const newWord = removeAccents(data.word.toLowerCase());
           setWord(newWord)
-          console.log(newWord)
         })
       .catch(err => console.error(err));
   }
