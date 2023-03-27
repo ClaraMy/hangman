@@ -7,42 +7,42 @@ import { useEffect, useState } from 'react';
 import { Modal } from './components/modal/Modal';
 
 // const words = ["voiture", "ordinateur", "aérien"];
-// const word = "pile";
+const word = "pique-nique";
 const MAX_MISSES = 11;
 
 const App = () => {
   // const API_URL = "http://localhost:3001";
-  const [word, setWord] = useState("");
+  // const [word, setWord] = useState("");
 
-  useEffect(() => {
-    // fetch('http://localhost:3001/', {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/x-www-form-urlencoded",
-    //   },
-    //   body: "locale = fr-FR",
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setWord(data.word);
-    //     console.log(data);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //   });
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/', {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/x-www-form-urlencoded",
+  //     },
+  //     body: "locale = fr-FR",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setWord(data.word);
+  //       console.log(data);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error:', error);
+  //     });
 
-    const options = {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams({locale: 'fr-FR'})
-    };
+  //   const options = {
+  //     method: 'POST',
+  //     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  //     body: new URLSearchParams({locale: 'fr-FR'})
+  //   };
     
-    fetch('http://localhost:3001/', options)
-      .then(response => response.json())
-      .then((data) => {
-          setWord(data.word)})
-      .catch(err => console.error(err));
-  }, []);
+  //   fetch('http://localhost:3001/', options)
+  //     .then(response => response.json())
+  //     .then((data) => {
+  //         setWord(data.word)})
+  //     .catch(err => console.error(err));
+  // }, []);
 
   const [lettersFound, setLettersFound] = useState([]);
   const [wordFound, setWordFound] = useState(false);

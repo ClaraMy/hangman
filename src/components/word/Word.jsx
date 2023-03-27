@@ -21,7 +21,6 @@ export const Word = ({ word, lettersFound, onWordFound }) => {
         {wordLetters.map((letter, index) => (
           <span
             key={index}
-            // className={`letter ${lettersFound.includes(letter) ? 'trouvee' : ''}`}
           >
             {lettersFound.includes(letter) ? letter : '_'}
           </span>
