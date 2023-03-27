@@ -22,7 +22,7 @@ export const Word = ({ word, lettersFound, onWordFound }) => {
           <span
             key={index}
           >
-            {lettersFound.includes(letter) ? letter : '_'}
+            {letter === '-' || lettersFound.includes(letter) ? letter : '_'}
           </span>
         ))}
     </div>
