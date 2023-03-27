@@ -16,7 +16,7 @@ const App = () => {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
-  useEffect(() => {
+  const getRandomWord = () => {
     const API_URL = 'http://localhost:3001/';
 
     const options = {
@@ -30,15 +30,19 @@ const App = () => {
       .then((data) => {
           const newWord = removeAccents(data.word.toLowerCase());
           setWord(newWord)
+          console.log(newWord)
         })
       .catch(err => console.error(err));
-  }, []);
+  }
 
-    
+  useEffect(() => {
+    getRandomWord();
+  }, []);
 
   const [lettersFound, setLettersFound] = useState([]);
   const [wordFound, setWordFound] = useState(false);
   const [misses, setMisses] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // // fonction pour choisir le mot à trouver
   // const chooseWord = () => {
@@ -67,6 +71,8 @@ const App = () => {
     setWordFound(false);
     setLettersFound([]);
     setMisses(0);
+    setIsPlaying(true);
+    getRandomWord();
   }
 
   const isGameOver = misses === MAX_MISSES;
