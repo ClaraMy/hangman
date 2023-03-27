@@ -7,7 +7,7 @@ export const Modal = ({ word, win, onClose }) => {
     <div className='modal'>
         <ModalSvg />
         <div className="modal__container">
-          <p className='modal__text'>{win ? `vous avez survecu a la pendaison car vous avez trouve le mot ${word}! (ca ne se passera pas comme ca a chaque fois)` : "oh non vous etes mort :("}</p>
+          <p className='modal__text'>{win ? `vous avez survecu a la pendaison car vous avez trouve le mot ${word}! (ca ne se passera pas comme ca a chaque fois)` : `oh non vous etes mort :( il fallait trouver le mot ${word} pour survivre...`}</p>
           <Button onClose={onClose} win={win} />
         </div>
     </div>
