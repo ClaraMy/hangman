@@ -9,22 +9,26 @@ import { Modal } from './components/modal/Modal';
 const MAX_MISSES = 11;
 
 const App = () => {
-  const [word, setWord] = useState("");
+  // -- CONSTANTES --
+  const [word, setWord] = useState(""); // mot à trouver
+  const API_URL = 'http://localhost:3001/'; // url de l'API
+  const options = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams({locale: 'fr-FR'})
+  }; 
+  const [lettersFound, setLettersFound] = useState([]); // tableau contenant les lettres qui ont été trouvées
+  const [wordFound, setWordFound] = useState(false); // false si le mot n'est pas trouvé / true si trouvé
+  const [misses, setMisses] = useState(0); // compteur avec le nombre d'erreur
 
-  // Fonction pour retirer les accents
+  // -- FONCTIONS --
+  // fonction pour retirer les accents
   const removeAccents = (str) => {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
+  // fonction pour générer un mot
   const getRandomWord = () => {
-    const API_URL = 'http://localhost:3001/';
-
-    const options = {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams({locale: 'fr-FR'})
-    };
-    
     fetch(API_URL, options)
       .then(response => response.json())
       .then((data) => {
@@ -35,23 +39,7 @@ const App = () => {
       .catch(err => console.error(err));
   }
 
-  useEffect(() => {
-    getRandomWord();
-  }, []);
-
-  const [lettersFound, setLettersFound] = useState([]);
-  const [wordFound, setWordFound] = useState(false);
-  const [misses, setMisses] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  // // fonction pour choisir le mot à trouver
-  // const chooseWord = () => {
-  //   const randomIndex = Math.floor(Math.random() * words.length);
-  //   setWord(words[randomIndex]);
-  //   const wordToFind = removeAccents(word);
-  //   setWord(wordToFind);
-  // };
-
+  // fonction pour changer les constantes lettersFound et misses au clic d'une touche
   const onPress = (letter) => {
     const inTheWord = word.includes(letter);
     if (inTheWord === true) {
@@ -66,17 +54,17 @@ const App = () => {
     setWordFound(true);
   }
 
-  // fonction pour rejouer
+  // fonction pour rejouer qui réinitialise tout
   const handleReplay = () => {
     setWordFound(false);
     setLettersFound([]);
     setMisses(0);
-    setIsPlaying(true);
     getRandomWord();
   }
 
   const isGameOver = misses === MAX_MISSES;
 
+  // fonction pour changer de message en fonction du nombre d'erreur  
   const getMessage = (misses) => {
     if (misses === MAX_MISSES) {
       return "Vous êtes mort !";
@@ -102,6 +90,10 @@ const App = () => {
       return "";
     }
   };
+
+  useEffect(() => {
+    getRandomWord();
+  }, []);
   
   return (
     <>
