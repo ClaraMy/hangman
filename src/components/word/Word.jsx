@@ -6,9 +6,13 @@ export const Word = ({ word, lettersFound, onWordFound }) => {
     let wordLetters = word.split('');
 
     // fonction pour savoir si toutes les lettres du mot ont été trouvées
-    const isWordFound = word.split("").every((letter) =>
-      lettersFound.includes(letter)
-    );
+    const isWordFound = word.split("").every((letter) => {
+        if (letter === "-") {
+          return true; // le tiret est déjà affiché
+      } else {
+          return lettersFound.includes(letter);
+      }
+    });
 
     useEffect(() => {
       if (isWordFound) {
