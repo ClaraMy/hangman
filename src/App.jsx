@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { Modal } from './components/modal/Modal';
 
 // const words = ["voiture", "ordinateur", "aérien"];
-const word = "pique-nique";
+const word = "piqué-nique";
 const MAX_MISSES = 11;
 
 const App = () => {
@@ -46,18 +46,7 @@ const App = () => {
 
   const [lettersFound, setLettersFound] = useState([]);
   const [wordFound, setWordFound] = useState(false);
-  const [isReplaying, setIsReplaying] = useState(false);
   const [misses, setMisses] = useState(0);
-
-
-  // remet tout à zéro si le joueur veut rejouer
-  useEffect(() => {
-    if (isReplaying) {
-      setLettersFound([]);
-      setWordFound(false);
-      setIsReplaying(false);
-    }
-  }, [isReplaying]);
 
   // Fonction pour retirer les accents
   const removeAccents = (str) => {
